@@ -1,10 +1,41 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 
-export default function EditGoalView({route, navigation}) {
+export default function NewGoalView({route, navigation}) {
 
-    const {id, name, frequency, goal1, goal2, goal3} = route.params;
+    const {goalList, addNewGoal} = route.params;
+
+    const [goalName, setGoalName] = useState('');
+    const [goalFrequency, setGoalFrequency] = useState('');
+    const [goalGoal1, setGoalGoal1] = useState('');
+    const [goalGoal2, setGoalGoal2] = useState('');
+    const [goalGoal3, setGoalGoal3] = useState('');
+
+    function onSubmit(){
+
+        //etablerer en helt ny liste, inni listen sier jeg at "...goalList" skal starte på den måten
+        //legger til et ekstra element etter det
+
+        //bruker hooks (addNewGoal hook) for å legge inn et ny element
+        addNewGoal([...goalList,
+            {
+            id: goalList.length+1,
+            name: goalName,
+            frequency: goalFrequency,
+            goal1: goalGoal1,
+            goal2: goalGoal2,
+            goal3: goalGoal3,
+        },
+
+        ])
+
+        navigation.goBack();
+
+        //console.log("submit");
+    };
+
+    //console.log(goalName);
 
     return (
         /*Her har vi et et View med klasse navnet container og der er en enkel render View*/
@@ -16,42 +47,42 @@ export default function EditGoalView({route, navigation}) {
                 <Text>Back</Text>
             </TouchableOpacity>
 
-            <Text style={styles.subHeader}>LIST 1</Text>
+            <Text style={styles.subHeader}>ADD NEW GOAL</Text>
 
             <TextInput
                 style={styles.textInput}
-                placeholder = {name}
-                onChangeText={(text) => this.setState({text})}
+                placeholder=" NAME OF LIST"
+                onChangeText={(text) => setGoalName(text)}
             />
 
             <TextInput
                 style={styles.textInput}
-                placeholder = {frequency}
-                onChangeText={(text) => this.setState({text})}
+                placeholder=" DAILY, WEEKLY, MONTHLY GOAL?"
+                onChangeText={(text) => setGoalFrequency(text)}
             />
 
             <TextInput
                 style={styles.textInput}
-                placeholder= {goal1}
-                onChangeText={(text) => this.setState({text})}
+                placeholder=" GOAL 1"
+                onChangeText={(text) => setGoalGoal1(text)}
             />
 
             <TextInput
                 style={styles.textInput}
-                placeholder= {goal2}
-                onChangeText={(text) => this.setState({text})}
+                placeholder=" GOAL 2"
+                onChangeText={(text) => setGoalGoal2(text)}
             />
 
             <TextInput
                 style={styles.textInput}
-                placeholder= {goal3}
-                onChangeText={(text) => this.setState({text})}
+                placeholder=" GOAL 3"
+                onChangeText={(text) => setGoalGoal3(text)}
             />
 
             <TouchableOpacity
                 style={styles.orangeButton}
-                onPress={() => navigation.goBack()}>
-                <Text>Save changes</Text>
+                onPress={onSubmit}>
+                <Text>Create new sets of goals</Text>
             </TouchableOpacity>
 
         </View>
@@ -64,7 +95,6 @@ const styles = StyleSheet.create({
         flex: 0,
         backgroundColor: '#F8F4EC',
         alignItems: 'center',
-        //justifyContent: 'center',
     },
 
     component:{
@@ -128,16 +158,10 @@ const styles = StyleSheet.create({
     },
 
     backButton:{
-        //backgroundColor: '#FFFFFF',
         color: '#47525E',
         width: '100%',
         height: '10%',
         elevation: 8,
-        //borderRadius: 10,
-        //borderWidth: 0.5,
-        //borderColor: '#47525E',
-        //paddingVertical: 20,
-        //paddingHorizontal: 83,
         marginTop: 30,
         marginRight: 350,
         marginBottom: -35,
@@ -147,7 +171,6 @@ const styles = StyleSheet.create({
     textInput: {
         height: 40,
         width:300,
-        //backgroundColor: 'azure',
         fontSize: 18,
         borderRadius: 0,
         borderWidth: 0.5,

@@ -3,10 +3,10 @@ import React from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginView from "./screens/LoginView";
-import MainView from "./screens/MainView";
-import NewGoalView from "./screens/NewGoalView";
-import EditGoalView from "./screens/EditGoalView";
+import LoginView from "./components/LoginView";
+import MainView from "./components/MainView";
+import NewGoalView from "./components/NewGoalView";
+import EditGoalView from "./components/EditGoalView";
 
 
 const Stack = createStackNavigator();
@@ -19,6 +19,7 @@ export default function App() {
                 <Stack.Screen
                     name="/login"
                     component={LoginView}
+                    options={{ title: 'Login' }}
                 />
                 <Stack.Screen
                     name="/main"
@@ -42,11 +43,10 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-    /*container: {
+    container: {
         flex: 1,
         backgroundColor: '#F8F4EC',
         alignItems: 'center',
-        //justifyContent: 'center',
-    },*/
+    },
 
 });

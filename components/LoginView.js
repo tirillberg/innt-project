@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
         flex: 0,
         backgroundColor: '#F8F4EC',
         alignItems: 'center',
-        //justifyContent: 'center',
     },
 
     component:{

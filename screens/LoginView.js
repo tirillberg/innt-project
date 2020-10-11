@@ -2,46 +2,30 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native';
 
-export default function MainView() {
+export default function LoginView({navigation}) {
 
-   /* static navigationOptions= {
-        title:'Login'
-    }*/
-
-    /*handleGoToMainView = () => {
-        // Når en komponent bliver mounted via navigation, får den en prop ved navn "navigation" som indeholder funktioner mv. til at navigere i appen.
-        this.props.navigation.goBack();
-    }*/
 
     return (
         /*Her har vi et et View med klasse navnet container og der er en enkel render View*/
         <View style={styles.container}>
 
-            <Text style={styles.text}>LoginView</Text>
-
             <Text style={styles.header}>RULE OF 3</Text>
 
             <TouchableOpacity
                 style={styles.orangeButton}
-                onPress={() => Alert.alert('Simple Button pressed')}>
+                onPress={() => navigation.navigate('/main')}>
                 <Text>Connect with Facebook</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
                 style={styles.whiteButton}
-                onPress={() => Alert.alert('Simple Button pressed')}>
+                onPress={() => navigation.navigate('/main')}>
                 <Text  style={styles.whiteButtonText} >Sign in</Text>
             </TouchableOpacity>
 
-           {/* <TouchableOpacity
-                style={styles.whiteButton}
-                onPress={this.handleGoToMainView}>
-                <Text  style={styles.whiteButtonText} >Sign in</Text>
-            </TouchableOpacity>*/}
-
             <TouchableOpacity
                 style={styles.accountButton}
-                onPress={() => Alert.alert('Simple Button pressed')}>
+                onPress={() => navigation.navigate('/main')}>
                 <Text style={styles.accountText}>Don't have an account? Sign up</Text>
             </TouchableOpacity>
 
@@ -100,22 +84,26 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderWidth: 0,
         borderColor: '#47525E',
-        paddingVertical: 25,
+        paddingVertical: 20,
         paddingHorizontal: 30,
         marginTop: 70,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
     whiteButton:{
         backgroundColor: '#FFFFFF',
-        width: '100%',
+        width: '75%',
         height: '10%',
         elevation: 8,
         borderRadius: 10,
         borderWidth: 0.5,
         borderColor: '#47525E',
-        paddingVertical: 22,
-        paddingHorizontal: 78,
+        paddingVertical: 20,
+        paddingHorizontal: 50,
         marginTop: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
     accountButton:{
@@ -131,12 +119,16 @@ const styles = StyleSheet.create({
         //paddingHorizontal: 83,
         marginTop: 30,
         fontWeight: 'bold',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
     whiteButtonText:{
         fontWeight:'bold',
         fontSize: 17,
-        color: '#47525E'
+        color: '#47525E',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
     accountText: {

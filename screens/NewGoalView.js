@@ -1,17 +1,44 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 
-export default function MainView() {
+export default function NewGoalView({route, navigation}) {
 
-    // static navigationOptions= {
-    //     title:'NewGoalView'
-    // }
 
-    /*handleGoToMainView = () => {
-        // Når en komponent bliver mounted via navigation, får den en prop ved navn "navigation" som indeholder funktioner mv. til at navigere i appen.
-        this.props.navigation.goBack();
-    }*/
+
+    const {goalList, addNewGoal} = route.params;
+
+    const [goalName, setGoalName] = useState('');
+    const [goalFrequency, setGoalFrequency] = useState('');
+    const [goalGoal1, setGoalGoal1] = useState('');
+    const [goalGoal2, setGoalGoal2] = useState('');
+    const [goalGoal3, setGoalGoal3] = useState('');
+
+
+    function onSubmit(){
+
+        //etablerer en helt ny liste, inni listen sier jeg at "...goalList" skal starte på den måten
+        //legger til et ekstra element etter det
+
+        //bruker hooks (addNewGoal hook) for å legge inn et ny element
+        addNewGoal([...goalList,
+            {
+            id: goalList.length+1,
+            name: goalName,
+            frequency: goalFrequency,
+            goal1: goalGoal1,
+            goal2: goalGoal2,
+            goal3: goalGoal3,
+        },
+
+        ])
+
+        navigation.goBack();
+
+        //console.log("submit");
+    };
+
+    //console.log(goalName);
 
     return (
         /*Her har vi et et View med klasse navnet container og der er en enkel render View*/
@@ -19,53 +46,45 @@ export default function MainView() {
 
             <TouchableOpacity
                 style={styles.backButton}
-                onPress={() => Alert.alert('Simple Button pressed')}>
+                onPress={() => navigation.goBack()}>
                 <Text>Back</Text>
             </TouchableOpacity>
-
-            {/*<TouchableOpacity
-                style={styles.backButton}
-                onPress={this.GoToMainView}>
-                <Text>Back</Text>
-            </TouchableOpacity>*/}
-
-            <Text style={styles.text}>NewGoalView</Text>
 
             <Text style={styles.subHeader}>ADD NEW GOAL</Text>
 
             <TextInput
                 style={styles.textInput}
                 placeholder=" NAME OF LIST"
-                onChangeText={(text) => this.setState({text})}
+                onChangeText={(text) => setGoalName(text)}
             />
 
             <TextInput
                 style={styles.textInput}
                 placeholder=" DAILY, WEEKLY, MONTHLY GOAL?"
-                onChangeText={(text) => this.setState({text})}
+                onChangeText={(text) => setGoalFrequency(text)}
             />
 
             <TextInput
                 style={styles.textInput}
                 placeholder=" GOAL 1"
-                onChangeText={(text) => this.setState({text})}
+                onChangeText={(text) => setGoalGoal1(text)}
             />
 
             <TextInput
                 style={styles.textInput}
                 placeholder=" GOAL 2"
-                onChangeText={(text) => this.setState({text})}
+                onChangeText={(text) => setGoalGoal2(text)}
             />
 
             <TextInput
                 style={styles.textInput}
                 placeholder=" GOAL 3"
-                onChangeText={(text) => this.setState({text})}
+                onChangeText={(text) => setGoalGoal3(text)}
             />
 
             <TouchableOpacity
                 style={styles.orangeButton}
-                onPress={() => Alert.alert('Simple Button pressed')}>
+                onPress={onSubmit}>
                 <Text>Create new sets of goals</Text>
             </TouchableOpacity>
 

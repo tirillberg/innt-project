@@ -2,7 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 
-export default function MainView() {
+export default function EditGoalView({route, navigation}) {
+
+    const {id, name, frequency, goal1, goal2, goal3} = route.params;
 
     return (
         /*Her har vi et et View med klasse navnet container og der er en enkel render View*/
@@ -10,47 +12,45 @@ export default function MainView() {
 
             <TouchableOpacity
                 style={styles.backButton}
-                onPress={() => Alert.alert('Simple Button pressed')}>
+                onPress={() => navigation.goBack()}>
                 <Text>Back</Text>
             </TouchableOpacity>
-
-            <Text style={styles.text}>EditGoalView</Text>
 
             <Text style={styles.subHeader}>LIST 1</Text>
 
             <TextInput
                 style={styles.textInput}
-                placeholder=" LIST 1"
+                placeholder = {name}
                 onChangeText={(text) => this.setState({text})}
             />
 
             <TextInput
                 style={styles.textInput}
-                placeholder=" WEEKLY GOAL"
+                placeholder = {frequency}
                 onChangeText={(text) => this.setState({text})}
             />
 
             <TextInput
                 style={styles.textInput}
-                placeholder=" WAKE UP BEFORE 7"
+                placeholder= {goal1}
                 onChangeText={(text) => this.setState({text})}
             />
 
             <TextInput
                 style={styles.textInput}
-                placeholder=" GO TO BED BEFORE 10"
+                placeholder= {goal2}
                 onChangeText={(text) => this.setState({text})}
             />
 
             <TextInput
                 style={styles.textInput}
-                placeholder=" DRINK X LITERS WATER EVERY DAY"
+                placeholder= {goal3}
                 onChangeText={(text) => this.setState({text})}
             />
 
             <TouchableOpacity
                 style={styles.orangeButton}
-                onPress={() => Alert.alert('Simple Button pressed')}>
+                onPress={() => navigation.goBack()}>
                 <Text>Save changes</Text>
             </TouchableOpacity>
 

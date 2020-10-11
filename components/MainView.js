@@ -26,7 +26,7 @@ export default function MainView({navigation}) {
     ]);
 
     return (
-        /*Her har vi et et View med klassenavnet container og der er en enkel render View*/
+        /*Her har vi et View med klassenavnet container og der er en enkel render View*/
         <View style={styles.container}>
 
             <Text style={styles.header}>RULE OF 3</Text>
@@ -37,7 +37,8 @@ export default function MainView({navigation}) {
 
             <TouchableOpacity
                 style={styles.orangeButton}
-                //navigate sier jeg ønsker å gå til den skjermen, men hvis man er på den skjermen så trenger man ikke gå til den skjermen
+                //navigate sier jeg ønsker å gå til den skjermen,
+                // -->men hvis man er på den skjermen så trenger man ikke gå til den skjermen
                 //push --> legger siden oppå
                 //back --> går ned en side igjen
                 onPress={() => navigation.push('/newGoal',
@@ -45,7 +46,6 @@ export default function MainView({navigation}) {
                         goalList: goalList,
                         addNewGoal: addGoalList,
                     })}>
-                {/*onPress={() => navigation.push('/newGoal')}> */}
                 <Text>Add new goal</Text>
             </TouchableOpacity>
 

@@ -13,6 +13,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
 
+    //oppretter stack navigator som holder styr på navigasjon. Denne delen er ytterste og første del av stacken
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="/login">

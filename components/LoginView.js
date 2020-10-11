@@ -13,6 +13,7 @@ export default function LoginView({navigation}) {
 
             <TouchableOpacity
                 style={styles.orangeButton}
+                //navigerer videre til MainView
                 onPress={() => navigation.navigate('/main')}>
                 <Text>Connect with Facebook</Text>
             </TouchableOpacity>

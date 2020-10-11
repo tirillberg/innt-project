@@ -12,6 +12,7 @@ export default function EditGoalView({route, navigation}) {
 
             <TouchableOpacity
                 style={styles.backButton}
+                //.goBack -> man går ned en stack i bunken, altså tilbake et view
                 onPress={() => navigation.goBack()}>
                 <Text>Back</Text>
             </TouchableOpacity>
@@ -64,7 +65,6 @@ const styles = StyleSheet.create({
         flex: 0,
         backgroundColor: '#F8F4EC',
         alignItems: 'center',
-        //justifyContent: 'center',
     },
 
     component:{

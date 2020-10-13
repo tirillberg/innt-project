@@ -53,6 +53,7 @@ export default function NewGoalView({route, navigation}) {
                 style={styles.textInput}
                 placeholder=" NAME OF LIST"
                 onChangeText={(text) => setGoalName(text)}
+                selectionColor={'#47525E'}
             />
 
             <TextInput
@@ -65,18 +66,21 @@ export default function NewGoalView({route, navigation}) {
                 style={styles.textInput}
                 placeholder=" GOAL 1"
                 onChangeText={(text) => setGoalGoal1(text)}
+                selectionColor={'#47525E'}
             />
 
             <TextInput
                 style={styles.textInput}
                 placeholder=" GOAL 2"
                 onChangeText={(text) => setGoalGoal2(text)}
+                selectionColor={'#47525E'}
             />
 
             <TextInput
                 style={styles.textInput}
                 placeholder=" GOAL 3"
                 onChangeText={(text) => setGoalGoal3(text)}
+                selectionColor={'#47525E'}
             />
 
             <TouchableOpacity

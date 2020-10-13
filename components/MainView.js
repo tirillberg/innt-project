@@ -52,6 +52,7 @@ export default function MainView({navigation}) {
             {/*Check if goal list is empty or not*/}
             {goalList.length > 0 ?
                 (
+
                     <View style={styles.list}>
                         {/*Iterating through goalList, return view for each goal item*/}
                         {goalList.map(goal=>{

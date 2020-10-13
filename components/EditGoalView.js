@@ -23,30 +23,35 @@ export default function EditGoalView({route, navigation}) {
                 style={styles.textInput}
                 placeholder = {name}
                 onChangeText={(text) => this.setState({text})}
+                selectionColor={'#47525E'}
             />
 
             <TextInput
                 style={styles.textInput}
                 placeholder = {frequency}
                 onChangeText={(text) => this.setState({text})}
+                selectionColor={'#47525E'}
             />
 
             <TextInput
                 style={styles.textInput}
                 placeholder= {goal1}
                 onChangeText={(text) => this.setState({text})}
+                selectionColor={'#47525E'}
             />
 
             <TextInput
                 style={styles.textInput}
                 placeholder= {goal2}
                 onChangeText={(text) => this.setState({text})}
+                selectionColor={'#47525E'}
             />
 
             <TextInput
                 style={styles.textInput}
                 placeholder= {goal3}
                 onChangeText={(text) => this.setState({text})}
+                selectionColor={'#47525E'}
             />
 
             <TouchableOpacity

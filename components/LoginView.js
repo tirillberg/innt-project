@@ -20,7 +20,7 @@ export default function LoginView({navigation}) {
 
             <TouchableOpacity
                 style={styles.whiteButton}
-                onPress={() => navigation.navigate('/main')}>
+                onPress={() => navigation.navigate('/signIn')}>
                 <Text  style={styles.whiteButtonText} >Sign in</Text>
             </TouchableOpacity>
 

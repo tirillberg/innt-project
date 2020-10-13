@@ -4,7 +4,6 @@ import {StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native';
 
 export default function LoginView({navigation}) {
 
-
     return (
         /*Her har vi et et View med klasse navnet container og der er en enkel render View*/
         <View style={styles.container}>
